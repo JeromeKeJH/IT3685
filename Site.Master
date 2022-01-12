@@ -13,7 +13,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="Content/images/logo.png" type="">
-    <title>Famms - Fashion HTML Template</title>
+    <title>IT3685 Project</title>
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="Content/css/bootstrap.css" />
     <!-- font awesome style -->
@@ -58,10 +58,10 @@
                                     <a class="nav-link" href="Product">Products</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog_list.html">Blog</a>
+                                    <a class="nav-link" href="#">Wishlist</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="#">Cart</a>
                                 </li>
 
                                 <li class="nav-item">
