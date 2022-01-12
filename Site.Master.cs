@@ -13,15 +13,5 @@ namespace IT3685
         {
 
         }
-
-        protected void Btn_SignInOnClick(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void forgetpassword_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
