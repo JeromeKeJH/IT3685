@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime;
 using System.Web;
 using System.Web.UI;
 using System.Configuration;
-using System.Linq;
 using MySql.Data.MySqlClient;
 using IT3685.App_Code;
 
