@@ -23,12 +23,32 @@
     <!-- responsive style -->
     <link href="Content/css/responsive.css" rel="stylesheet" />
 
+        <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/css/util.css">
+    <link rel="stylesheet" type="text/css" href="Content/css/main.css">
+    <!--===============================================================================================-->
+
     <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 
 <body>
-
     <form runat="server">
         <div class="hero_area">
             <!-- header section strats -->
@@ -42,8 +62,8 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                <li class="nav-item" id="Home" runat="server">
+                                    <a class="nav-link" href="/">Home</a>
                                 </li>
                                 <!-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span class="nav-label">Pages <span class="caret"></span></a>
@@ -52,21 +72,29 @@
                                         <li><a href="testimonial.html">Testimonial</a></li>
                                     </ul>
                                 </li> -->
-                                <li class="nav-item">
+                                <li class="nav-item" id="Product" runat="server">
                                     <a class="nav-link" href="Product">Products</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Wishlist</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Cart</a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href='Login' onclick="show_login">Login</a>
+
+                                <li class="nav-item" runat="server" id="Login">
+                                    <a class="nav-link" href='Login'>Login</a>
+                                </li>
+                                <li class="nav-item" runat="server" id="Signup">
+                                    <a class="nav-link" href='Signup'>Signup</a>
+                                </li>
+
+                                <li class="nav-item dropdown" runat="server" id="User" style="display: none">
+                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><class="nav-label"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="#">Wishlist</a></li>
+                                        <li><a href="#">Cart</a></li>
+                                        <li><asp:LinkButton runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

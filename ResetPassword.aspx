@@ -1,53 +1,45 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="IT3685.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="IT3685.ResetPassword" %>
 
-<asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
 </asp:Content>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="limiter">
         <div class="container-login100" style="background-image: url('Content/images/login-bg.jpg');">
             <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                 <form class="login100-form validate-form flex-sb flex-w">
-                    <span class="login100-form-title p-b-53">Log In
+                    <span class="login100-form-title p-b-53">Reset Password
                     </span>
 
-                    <asp:Label runat="server" ID="lblErrorMsg" Style="color: red" Text=""></asp:Label>
-                    <div class="p-t-31 p-b-9">
-                        <span class="txt1">Email
-                        </span>
-                    </div>
-                    <div class="wrap-input100 validate-input" data-validate="Email is required">
-                        <asp:TextBox runat="server" CssClass="input100" ID="txtEmail"></asp:TextBox>
-                        <span class="focus-input100"></span>
-                    </div>
+                    <asp:Label runat="server" ID="lblErrorMsg" Text="" Style="color: red"></asp:Label>
 
-                    <div class="p-t-13 p-b-9">
-                        <span class="txt1">Password
-                        </span>
-
-                        <a href="ForgetPassword" class="txt2 bo1 m-l-5">Forgot?
-                        </a>
-                    </div>
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <asp:TextBox type="password" runat="server" CssClass="input100" ID="txtPassword"></asp:TextBox>
-                        <span class="focus-input100"></span>
+                    <div runat="server" style="display: none" id="Password">
+                        <div class="p-t-31 p-b-9">
+                            <span class="txt1">New Password
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <asp:TextBox runat="server" CssClass="input100" ID="txtPassword" type="password"></asp:TextBox>
+                            <span class="focus-input100"></span>
+                        </div>
                     </div>
 
-                    <div class="container-login100-form-btn m-t-17">
-                        <asp:LinkButton runat="server" CssClass="login100-form-btn" style="color: white" OnClick="OnLoginClick">Sign In</asp:LinkButton>
+                    <div runat="server" style="display: none" id="ConfirmPassword">
+                        <div class="p-t-31 p-b-9">
+                            <span class="txt1">Confirm Password
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Confirm Password is required">
+                            <asp:TextBox runat="server" CssClass="input100" ID="txtConfirmPassword" type="password"></asp:TextBox>
+                            <span class="focus-input100"></span>
+                        </div>
+
                     </div>
 
-                    <div class="w-full text-center p-t-55">
-                        <span class="txt2">Not a member?
-                        </span>
-
-                        <a href="Signup" class="txt2 bo1">Sign up now
-                        </a>
+                    <div class="container-login100-form-btn m-t-17" style="padding-top: 40px; display: none" runat="server" id="ResetBtn">
+                        <asp:LinkButton runat="server" CssClass="login100-form-btn" Style="color: white" OnClick="OnResetPasswordClick">Reset Password</asp:LinkButton>
                     </div>
                 </form>
             </div>
