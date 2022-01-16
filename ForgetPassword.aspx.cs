@@ -46,10 +46,10 @@ namespace IT3685
                 string userId = cmd.ExecuteScalar().ToString();
                 string url = noLastSegment + $"/ResetPassword?userId={userId}&key={key}";
                 string subject = "Password Reset Request";
-                string message = "You have requested to reset your password. Please click on this to continue" +
-                    " <a href=\"" + url + "\">link</a><br /><br />";
+                string message = "You have requested to reset your password. Please click on this " +
+                    " <a href=\"" + url + "\">link</a> to continue<br /><br />";
 
-                message += HttpUtility.HtmlEncode(@"Or copy the following link onto a browser: " + url);
+                message += HttpUtility.HtmlEncode(@"Or copy the following URL onto a browser: <br />" + url);
                 Email.SendEmail(email, subject, message);
             }
 

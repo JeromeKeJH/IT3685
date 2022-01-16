@@ -90,7 +90,7 @@
                                 <li class="nav-item dropdown" runat="server" id="User" style="display: none">
                                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><class="nav-label"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="Account">Account Settings</a></li>
                                         <li><a href="#">Wishlist</a></li>
                                         <li><a href="#">Cart</a></li>
                                         <li><asp:LinkButton runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></li>
