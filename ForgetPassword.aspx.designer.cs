@@ -11,7 +11,7 @@ namespace IT3685
 {
 
 
-    public partial class Login
+    public partial class ForgetPassword
     {
 
         /// <summary>
@@ -31,14 +31,5 @@ namespace IT3685
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-
-        /// <summary>
-        /// txtPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
     }
 }

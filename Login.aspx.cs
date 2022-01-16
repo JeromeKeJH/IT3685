@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-
 
 using MySql.Data.MySqlClient;
 
-using System.Data.SqlClient;
-using System.Data;
 using System.Configuration;
 
 namespace IT3685
 {
-    public partial class About : Page
+    public partial class Login : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +18,11 @@ namespace IT3685
             {
                 lblErrorMsg.Style.Add("color", "green");
                 lblErrorMsg.Text = "Registration was successful, please proceed to log in";
+            }
+            if (msg == "ResetSuccess")
+            {
+                lblErrorMsg.Style.Add("color", "green");
+                lblErrorMsg.Text = "Password reset was successful, please proceed to log in";
             }
         }
 

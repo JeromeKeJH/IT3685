@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace IT3685
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Signup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
