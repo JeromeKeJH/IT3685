@@ -23,7 +23,7 @@
     <!-- responsive style -->
     <link href="Content/css/responsive.css" rel="stylesheet" />
 
-        <!--===============================================================================================-->
+    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Content/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -108,7 +108,7 @@
 
 
 
-            <footer style="background-color: #48525e">
+            <footer style="background-color: #48525e; margin-top:150px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
@@ -171,12 +171,8 @@
                     </div>
                 </div>
             </footer>
-
         </div>
-
     </form>
-
-
 
     <script src="Content/js/jquery-3.4.1.min.js"></script>
     <!-- popper js -->
