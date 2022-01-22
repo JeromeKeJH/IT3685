@@ -17,12 +17,16 @@
                             <div class="box">
                                 <div class="option_container">
                                     <div class="options">
-                                        <a href="" class="option1"><%# Eval("Name") %>
+
+                                        <a href="" class="option1">
+                                            <%# Eval("Name") %>
                                         </a>
                                         <a href="" class="option3">Wishlist
                                         </a>
-                                        <a href="" class="option2">Add to Cart
-                                        </a>
+                                        <asp:LinkButton runat="server" OnClick="Add_To_Cart" 
+                                            CssClass="option2" CommandArgument='<%# Eval("Id") %>'>
+                                            Add to Cart
+                                        </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="img-box">

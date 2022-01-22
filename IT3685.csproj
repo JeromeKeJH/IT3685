@@ -208,6 +208,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="Content\css\Cart.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\templatemo-style.css" />
     <Content Include="Content\css\util.css" />
@@ -223,6 +225,7 @@
     <Content Include="Content\images\Products\2.jpg" />
     <Content Include="Content\images\Products\3.jpg" />
     <Content Include="Content\images\Products\4.png" />
+    <Content Include="Content\images\Products\5.png" />
     <Content Include="Content\js\login.js" />
     <Content Include="Content\vendor\animate\animate.css" />
     <Content Include="Content\vendor\animsition\css\animsition.css" />
@@ -426,6 +429,13 @@
     </Compile>
     <Compile Include="App_Code\Email.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
