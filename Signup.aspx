@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                    <asp:Label runat="server" ID="lblPasswordValidation" Style="color: red" Text=""></asp:Label>
+                    <asp:Label runat="server" ID="lblPasswordValidation" Style="color: red" Text="*Password must contain 1 Uppercase, 1 Lowercase, 1 Number and more than 8 characters"></asp:Label>
 
                     <div class="row" style="padding-top: 8px">
                         <div class="col">

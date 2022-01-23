@@ -61,15 +61,13 @@ namespace IT3685
             // Password Complexity check
             if (!Regex.IsMatch(password, @"^^(?=.*[A-Z])(?=.*[\d])(?=.*[a-z]).{8,}$"))
             {
-                lblPasswordValidation.Text = "Password must contain 1 Uppercase, 1 Lowercase, 1 Number and more than 8 characters";
-                lblErrorMsg.Text = "";
+                lblErrorMsg.Text = "Password does not meet the requirements";
                 return;
             }
             // Verify that Password matches Confirm Password
             if (password != confirmPassword)
             {
-                lblPasswordValidation.Text = "Password does not match Confirm Password";
-                lblErrorMsg.Text = "";
+                lblErrorMsg.Text = "Password does not match Confirm Password";
                 return;
             }
 
