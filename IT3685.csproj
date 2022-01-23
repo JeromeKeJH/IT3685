@@ -207,7 +207,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account.aspx" />
+    <Content Include="Account_Settings.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Content\css\Cart.css" />
     <Content Include="Content\css\main.css" />
@@ -420,12 +420,12 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.aspx.cs">
-      <DependentUpon>Account.aspx</DependentUpon>
+    <Compile Include="Account_Settings.aspx.cs">
+      <DependentUpon>Account_Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account.aspx.designer.cs">
-      <DependentUpon>Account.aspx</DependentUpon>
+    <Compile Include="Account_Settings.aspx.designer.cs">
+      <DependentUpon>Account_Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Email.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

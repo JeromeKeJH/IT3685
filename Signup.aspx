@@ -65,6 +65,8 @@
                         </div>
                     </div>
 
+                    <asp:Label runat="server" ID="lblPasswordValidation" Style="color: red" Text=""></asp:Label>
+
                     <div class="row" style="padding-top: 8px">
                         <div class="col">
                             <span class="txt1">Password<span style="color: red">*</span>

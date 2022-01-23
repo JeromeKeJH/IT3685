@@ -257,7 +257,7 @@ aside {
 
 .summary-total-items {
   color: #666;
-  font-size: 0.875rem;
+  font-size: 1.225rem;
   text-align: center;
 }
 
@@ -267,6 +267,7 @@ aside {
   border-bottom: 1px solid #ccc;
   clear: both;
   margin: 1rem 0;
+  font-size: 1.225rem;
   overflow: hidden;
   padding: 0.5rem 0;
 }

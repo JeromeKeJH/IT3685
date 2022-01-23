@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="IT3685.Account" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Account_Settings.aspx.cs" Inherits="IT3685.AccountV02" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
     <style>
         body {
@@ -84,8 +83,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-
-
     <div class="container">
         <div class="alert alert-success" runat="server" id="alertSuccess" style="display: none;">
             <strong>Success!</strong> Your account details has been updated
@@ -106,18 +103,10 @@
                                     <asp:Label runat="server" ID="lblEmail"></asp:Label></h6>
                                 <h6 class="user-email">
                                     <asp:Label runat="server" ID="lblGender"></asp:Label></h6>
+                                <h6 class="user-email">
+                                    <asp:Label runat="server" ID="lblDOB"></asp:Label></h6>
                             </div>
 
-                            <p style="text-align: center;">Upload new display picture</p>
-                            <input id="oFile" type="file" runat="server" name="oFile">
-
-                            <asp:Panel ID="frmConfirmation" Visible="true" runat="server">
-                                <asp:Label ID="lblUploadResult" runat="server"></asp:Label>
-                            </asp:Panel>
-                            <!-- <div class="about">
-                                <h5>About</h5>
-                                <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -145,6 +134,13 @@
                                 <div class="form-group">
                                     <label for="txtPhone">Phone</label>
                                     <asp:TextBox runat="server" ID="txtPhone" class="form-control" placeholder="Enter phone number" type="number"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="oFile">Display Image</label>
+                                    <input type="file" runat="server" name="oFile" id="oFile">
+
                                 </div>
                             </div>
                         </div>
@@ -184,7 +180,5 @@
             </div>
         </div>
     </div>
-    <br />
-    <br />
-    <br />
 </asp:Content>
+
