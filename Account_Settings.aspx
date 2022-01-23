@@ -107,12 +107,6 @@
                                     <asp:Label runat="server" ID="lblDOB"></asp:Label></h6>
                             </div>
 
-                            <p style="text-align: center;">Upload new display picture</p>
-                            <input id="oFile" type="file" runat="server" name="oFile">
-
-                            <asp:Panel ID="frmConfirmation" Visible="true" runat="server">
-                                <asp:Label ID="lblUploadResult" runat="server"></asp:Label>
-                            </asp:Panel>
                         </div>
                     </div>
                 </div>
@@ -140,6 +134,13 @@
                                 <div class="form-group">
                                     <label for="txtPhone">Phone</label>
                                     <asp:TextBox runat="server" ID="txtPhone" class="form-control" placeholder="Enter phone number" type="number"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="oFile">Display Image</label>
+                                    <input type="file" runat="server" name="oFile" id="oFile">
+
                                 </div>
                             </div>
                         </div>
