@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace IT3685
 {
-    public partial class Account : System.Web.UI.Page
+    public partial class AccountV02 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace IT3685
                 alertSuccess.Style.Add("display", "block");
             }
 
-                if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["IT3685"].ConnectionString);
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM customer WHERE Id=@id", con);
@@ -37,6 +37,7 @@ namespace IT3685
                 lblName.Text = $"{reader["FirstName"]} {reader["LastName"]}";
                 lblEmail.Text = reader["EmailAddress"].ToString();
                 lblGender.Text = reader["Gender"].ToString() == "M" ? "Male" : "Female";
+                lblDOB.Text = reader["DateOfBirth"].ToString();
                 txtFirstName.Text = reader["FirstName"].ToString();
                 txtLastName.Text = reader["LastName"].ToString();
                 txtPhone.Text = reader["ContactNumber"].ToString();
@@ -112,7 +113,7 @@ namespace IT3685
             con.Close();
             string url = Page.Request.Url.ToString().Contains("Msg=Success") ? Page.Request.Url.ToString() :
                 Page.Request.Url.ToString() + "?Msg=Success";
-                
+
             Page.Response.Redirect(url, true);
         }
     }

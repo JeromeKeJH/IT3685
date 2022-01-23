@@ -11,7 +11,7 @@ namespace IT3685
 {
 
 
-    public partial class Account
+    public partial class AccountV02
     {
 
         /// <summary>
@@ -58,6 +58,15 @@ namespace IT3685
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGender;
+
+        /// <summary>
+        /// lblDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDOB;
 
         /// <summary>
         /// oFile control.
