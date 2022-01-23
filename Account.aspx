@@ -72,12 +72,24 @@
             border: 0;
             margin-bottom: 1rem;
         }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+
+
     <div class="container">
+        <div class="alert alert-success" runat="server" id="alertSuccess" style="display: none;">
+            <strong>Success!</strong> Your account details has been updated
+        </div>
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
@@ -85,12 +97,23 @@
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                                    <asp:Image runat="server" ID="imgProfile" />
                                 </div>
-                                <h5 class="user-name">Yuki Hayashi</h5>
-                                <h6 class="user-email">yuki@Maxwell.com</h6>
-                                <h6 class="user-email">Male</h6>
+
+                                <h5 class="user-name">
+                                    <asp:Label runat="server" ID="lblName"></asp:Label></h5>
+                                <h6 class="user-email">
+                                    <asp:Label runat="server" ID="lblEmail"></asp:Label></h6>
+                                <h6 class="user-email">
+                                    <asp:Label runat="server" ID="lblGender"></asp:Label></h6>
                             </div>
+
+                            <p style="text-align: center;">Upload new display picture</p>
+                            <input id="oFile" type="file" runat="server" name="oFile">
+
+                            <asp:Panel ID="frmConfirmation" Visible="true" runat="server">
+                                <asp:Label ID="lblUploadResult" runat="server"></asp:Label>
+                            </asp:Panel>
                             <!-- <div class="about">
                                 <h5>About</h5>
                                 <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
@@ -108,20 +131,20 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="fullName">First Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter first name">
+                                    <label for="txtFirstName">First Name</label>
+                                    <asp:TextBox runat="server" ID="txtFirstName" class="form-control" placeholder="Enter first name"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="eMail">Last Name</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter last name">
+                                    <label for="txtLastName">Last Name</label>
+                                    <asp:TextBox runat="server" ID="txtLastName" class="form-control" placeholder="Enter last name"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                    <label for="txtPhone">Phone</label>
+                                    <asp:TextBox runat="server" ID="txtPhone" class="form-control" placeholder="Enter phone number" type="number"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -132,27 +155,27 @@
 
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label for="ciTy">Address</label>
-                                    <input type="name" class="form-control" id="ciTy" placeholder="Enter Address">
+                                    <label for="txtAddress">Address</label>
+                                    <asp:TextBox runat="server" ID="txtAddress" class="form-control" placeholder="Enter address"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="sTate">Unit No.</label>
-                                    <input type="text" class="form-control" id="sTate" placeholder="Unit Number">
+                                    <label for="txtUnitNo">Unit No. <small>(Optional)</small></label>
+                                    <asp:TextBox runat="server" ID="txtUnitNo" class="form-control" placeholder="Enter unit number" type="number"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="zIp">Postal Code</label>
-                                    <input type="text" class="form-control" id="zIp" placeholder="Postal Code">
+                                    <label for="txtPostalCode">Postal Code</label>
+                                    <asp:TextBox runat="server" ID="txtPostalCode" class="form-control" placeholder="Enter postal code" type="number"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
-                                    <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                    <asp:LinkButton runat="server" ID="Update" name="submit" class="btn btn-primary" OnClick="Update_Click">Update</asp:LinkButton>
                                 </div>
                             </div>
                         </div>
@@ -161,5 +184,7 @@
             </div>
         </div>
     </div>
-    <br /><br /><br />
+    <br />
+    <br />
+    <br />
 </asp:Content>

@@ -23,9 +23,9 @@
                                         </a>
                                         <a href="" class="option3">Wishlist
                                         </a>
-                                        <asp:LinkButton runat="server" OnClick="Add_To_Cart" 
+                                        <asp:LinkButton runat="server" OnClick="Add_To_Cart"
                                             CssClass="option2" CommandArgument='<%# Eval("Id") %>'>
-                                            Add to Cart
+                                             Add to Cart
                                         </asp:LinkButton>
                                     </div>
                                 </div>
@@ -45,5 +45,4 @@
             </div>
         </div>
     </section>
-
 </asp:Content>

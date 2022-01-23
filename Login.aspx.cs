@@ -29,6 +29,11 @@ namespace IT3685
                 lblErrorMsg.Style.Add("color", "red");
                 lblErrorMsg.Text = "Please log in to Add to Cart";
             }
+            if (msg == "Login")
+            {
+                lblErrorMsg.Style.Add("color", "red");
+                lblErrorMsg.Text = "Please log in to proceed";
+            }
         }
 
         protected void OnLoginClick(object sender, EventArgs e)
