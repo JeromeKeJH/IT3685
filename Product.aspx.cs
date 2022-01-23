@@ -17,7 +17,7 @@ namespace IT3685
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["IT3685"].ConnectionString);
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM product", con);
             con.Open();
-            
+
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             adapter.SelectCommand = cmd;
 
@@ -65,9 +65,17 @@ namespace IT3685
                 cmd = new MySqlCommand("UPDATE cart SET Quantity=@quantity WHERE CustomerId=@customerId AND ProductId=@productId", con);
                 cmd.Parameters.AddWithValue("@customerId", customerId);
                 cmd.Parameters.AddWithValue("@productId", productId);
-                cmd.Parameters.AddWithValue("@quantity", quantity+1);
+                cmd.Parameters.AddWithValue("@quantity", quantity + 1);
                 cmd.ExecuteNonQuery();
             }
+
+            cmd.Dispose();
+            cmd = new MySqlCommand("SELECT Name FROM product WHERE Id=@productId", con);
+            cmd.Parameters.AddWithValue("@productId", productId);
+            string name = cmd.ExecuteScalar().ToString();
+            con.Close();
+            ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "none",
+                $"alert('{name} has been added to your cart');", true);
         }
     }
 }

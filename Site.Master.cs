@@ -14,6 +14,7 @@ namespace IT3685
                 Login.Style.Add("Display", "None");
                 Signup.Style.Add("Display", "None");
                 User.Style.Add("Display", "Block");
+                Cart.Style.Add("Display", "Block");
             }
             string url = new Uri(HttpContext.Current.Request.Url.AbsoluteUri).ToString();
             var urlList = url.Split('/');
@@ -28,6 +29,14 @@ namespace IT3685
             else if (urlList.Last() == "Signup")
             {
                 Signup.Attributes.Add("Class", "nav-item active");
+            }
+            else if (urlList.Last() == "Cart")
+            {
+                Cart.Attributes.Add("Class", "nav-item active");
+            }
+            else if (urlList.Last() == "Wishlist" || urlList.Last() == "Account")
+            {
+                User.Attributes.Add("Class", "nav-item active");
             }
             else
             {
