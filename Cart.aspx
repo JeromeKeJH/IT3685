@@ -11,7 +11,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <main>
         <div class="basket">
-
             <div class="basket-labels">
                 <ul>
                     <li class="item item-heading checkout-li">Item</li>
@@ -67,17 +66,10 @@
                 <div class="summary-subtotal">
                     <div class="subtotal-title">Subtotal</div>
                     <div class="subtotal-value final-value" id="basket-subtotal"><asp:Label runat="server" ID="lblSubtotal" Text="0"></asp:Label></div>
-                    <div class="summary-promo hide">
-                        <div class="promo-title">Promotion</div>
-                        <div class="promo-value final-value" id="basket-promo"></div>
-                    </div>
                 </div>
                 <div class="summary-delivery">
-                    <select name="delivery-collection" class="summary-delivery-selection">
-                        <option value="0" selected="selected">Select Delivery Method</option>
-                        <option value="collection">Self Collection</option>
-                        <option value="first-class">Local Postage</option>
-                    </select>
+                    <div class="subtotal-title">Local Postage</div>
+                    <div class="subtotal-value final-value" id="basket-summary-delivery">0</div>
                 </div>
                 <div class="summary-total">
                     <div class="total-title">Total</div>

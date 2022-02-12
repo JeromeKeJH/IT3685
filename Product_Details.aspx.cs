@@ -54,9 +54,10 @@ namespace IT3685
             if (count == 0)
             {
                 cmd = new MySqlCommand("INSERT INTO cart(`CustomerId`, `ProductId`, `Quantity`) " +
-                    "VALUES(@customerId, @productId, 1)", con);
+                    "VALUES(@customerId, @productId, @quantity)", con);
                 cmd.Parameters.AddWithValue("@customerId", customerId);
                 cmd.Parameters.AddWithValue("@productId", productId);
+                cmd.Parameters.AddWithValue("@quantity", TxtQuantity.Text);
                 cmd.ExecuteNonQuery();
             }
             else
@@ -80,7 +81,54 @@ namespace IT3685
             string name = cmd.ExecuteScalar().ToString();
             con.Close();
             ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "none",
-                $"alert('{name} has been added to your cart');", true);
+                $"alert('{TxtQuantity.Text} {name} has been added to your cart');", true);
         }
+
+        protected void Add_To_Wishlist(object sender, EventArgs e)
+        {
+            var customerId = Session["customerId"];
+            if (customerId == null)
+            {
+                Response.Redirect("Login?msg=AddToWishlist");
+            }
+
+            Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+            string productId = HttpUtility.ParseQueryString(myUri.Query).Get("id");
+            customerId = customerId.ToString();
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["IT3685"].ConnectionString);
+
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT Name FROM product WHERE Id=@productId", con);
+            cmd.Parameters.AddWithValue("@productId", productId);
+            string name = cmd.ExecuteScalar().ToString();
+
+            cmd.Dispose();
+            cmd = new MySqlCommand("SELECT COUNT(*) FROM wishlist WHERE CustomerId=@customerId AND ProductId=@productId", con);
+            cmd.Parameters.AddWithValue("@customerId", customerId);
+            cmd.Parameters.AddWithValue("@productId", productId);
+
+            int count = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            cmd.Dispose();
+
+            if (count == 0)
+            {
+                cmd = new MySqlCommand("INSERT INTO wishlist(`CustomerId`, `ProductId`) " +
+                    "VALUES(@customerId, @productId)", con);
+                cmd.Parameters.AddWithValue("@customerId", customerId);
+                cmd.Parameters.AddWithValue("@productId", productId);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "none",
+                    $"alert('Error: {name} is already in your wishlist');", true);
+                return;
+            }
+
+            con.Close();
+            ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "none",
+                $"alert('{name} has been added to your wishlist');", true);
+        }
+
     }
 }

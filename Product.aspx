@@ -21,8 +21,10 @@
                                         <a href='<%# "/Product_Details?id=" + Eval("Id") %>' class="option1">
                                             <%# Eval("Name") %>
                                         </a>
-                                        <a href="" class="option3">Wishlist
-                                        </a>
+                                        <asp:LinkButton runat="server" OnClick="Add_To_Wishlist"
+                                            CssClass="option3" CommandArgument='<%# Eval("Id") %>'>
+                                             Wishlist
+                                        </asp:LinkButton>
                                         <asp:LinkButton runat="server" OnClick="Add_To_Cart"
                                             CssClass="option2" CommandArgument='<%# Eval("Id") %>'>
                                              Add to Cart
