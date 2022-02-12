@@ -208,7 +208,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account_Settings.aspx" />
+    <Content Include="Add_Card.aspx" />
+    <Content Include="Checkout.aspx" />
     <Content Include="Cart.aspx" />
+    <Content Include="Content\css\AddCard.css" />
+    <Content Include="Content\css\CardListing.css" />
     <Content Include="Content\css\Cart.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\templatemo-style.css" />
@@ -427,6 +431,20 @@
     </Compile>
     <Compile Include="Account_Settings.aspx.designer.cs">
       <DependentUpon>Account_Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Card.aspx.cs">
+      <DependentUpon>Add_Card.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Card.aspx.designer.cs">
+      <DependentUpon>Add_Card.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Email.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
