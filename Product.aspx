@@ -18,7 +18,7 @@
                                 <div class="option_container">
                                     <div class="options">
 
-                                        <a href="" class="option1">
+                                        <a href='<%# "/Product_Details?id=" + Eval("Id") %>' class="option1">
                                             <%# Eval("Name") %>
                                         </a>
                                         <a href="" class="option3">Wishlist
