@@ -2,12 +2,26 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
     <link rel="stylesheet" href="Content/css/CardListing.css" />
+    <link rel="stylesheet" href="Content/css/AddCard.css" />
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script>
+        window.onload = function () {
+            console.log(document.getElementById("CardType"));
+        };
+
+        function onSubmit() {
+            console.log(document.querySelector('input[name="cardRadio"]:checked').value);
+        }
+    </script>
     <section class="product_section layout_padding">
         <div class="container">
+            <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsgDiv">
+                <asp:Label runat="server" ID="errorMessage"></asp:Label>
+            </div>
+
             <div class="row billing-fields">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
                     <div class="create-ac-content bg-light-gray padding-20px-all">
@@ -34,82 +48,40 @@
                             </div>
                         </fieldset>
                     </div>
+                    <br />
                     <hr />
+                    <br />
                     <div>
                         <h2 class="login-title mb-3">Payment Card</h2>
 
                         <!-- Cards -->
-                        <asp:RadioButton ID="rbMetric" runat="server" GroupName="measurementSystem" Style="display: inline-block; padding-right: 20px" />
-                        <div class="credit-card visa" style="display: inline-block;">
-                            <div class="credit-card-last4">
-                                4242
-                            </div>
-                            <div class="credit-card-expiry">
-                                08/25
-                            </div>
-                        </div>
-                        <br />
-                        <asp:RadioButton ID="RadioButton1" runat="server" GroupName="measurementSystem" Style="display: inline-block; padding-right: 20px" />
-                        <div class="credit-card visa" style="display: inline-block;">
-                            <div class="credit-card-last4">
-                                4242
-                            </div>
-                            <div class="credit-card-expiry">
-                                08/25
-                            </div>
-                        </div>
+                        <asp:Repeater runat="server" ID="cardRepeater">
+                            <ItemTemplate>
+                                <input type="radio" name="cardRadio" id='<%# Eval("CardNumber") %>' value='<%# Eval("CardNumber") %>' style="display: inline-block;">
+                                &nbsp &nbsp
+                                    <div class='<%# "credit-card " + GetCardType(Eval("CardNumber").ToString()) %>' id="CardType" style="display: inline-block;">
+                                        <div class="credit-card-last4">
+                                            <%# Eval("CardNumber").ToString().Substring(12) %>
+                                        </div>
+                                        <div class="credit-card-expiry">
+                                            <%# Eval("ExpiryMonth") + "/" + Eval("ExpiryYear") %>
+                                        </div>
+                                    </div>
+                                    <br />
+                            </ItemTemplate>
+                        </asp:Repeater>
 
-                        <br />
-                        <a href="#">
-                            <div style="padding-left: 40px;">
+                        <div style="padding-left: 33px;">
+                            <asp:LinkButton runat="server" ID="OpenAddCard" OnClick="OpenAddCard_Click">
                                 <div class="credit-card none" style="display: inline-block;">
                                     Add New Card
                                 </div>
-                            </div>
-                        </a>
-
-
-                        <!-- Mastercard - selectable -->
-                        <div class="credit-card mastercard selectable">
-                            <div class="credit-card-last4">
-                                8210
-                            </div>
-                            <div class="credit-card-expiry">
-                                10/22
-                            </div>
+                            </asp:LinkButton>
                         </div>
 
-                        <!-- Amex - selectable -->
-                        <div class="credit-card amex selectable">
-                            <div class="credit-card-last4">
-                                8431
-                            </div>
-                            <div class="credit-card-expiry">
-                                01/24
-                            </div>
-                        </div>
 
-                        <!-- Discover - selectable -->
-                        <div class="credit-card discover selectable">
-                            <div class="credit-card-last4">
-                                9424
-                            </div>
-                            <div class="credit-card-expiry">
-                                06/23
-                            </div>
-                        </div>
-
-                        <!-- Diners - selectable -->
-                        <div class="credit-card diners selectable">
-                            <div class="credit-card-last4">
-                                3237
-                            </div>
-                            <div class="credit-card-expiry">
-                                08/25
-                            </div>
-                        </div>
-
-                        <!-- JCB - selectable -->
+                        <!--
+                        <!- JCB - selectable ->
                         <div class="credit-card jcb selectable">
                             <div class="credit-card-last4">
                                 1060
@@ -120,7 +92,7 @@
                         </div>
 
 
-                        <!-- Unionpay - selectable -->
+                        <!- Unionpay - selectable ->
                         <div class="credit-card unionpay selectable">
                             <div class="credit-card-last4">
                                 0005
@@ -129,7 +101,7 @@
                                 03/25
                             </div>
                         </div>
-
+                        -->
 
 
                     </div>
@@ -146,58 +118,94 @@
                                         <tr>
                                             <th class="text-left">Product Name</th>
                                             <th>Price</th>
-                                            <th>Size</th>
                                             <th>Qty</th>
                                             <th>Subtotal</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
-                                        <tr>
-                                            <td class="text-left">Spike Jacket</td>
-                                            <td>$99</td>
-                                            <td>S</td>
-                                            <td>1</td>
-                                            <td>$99</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Argon Sweater</td>
-                                            <td>$199</td>
-                                            <td>M</td>
-                                            <td>2</td>
-                                            <td>$298</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Babydoll Bow Dress</td>
-                                            <td>$299</td>
-                                            <td>XL</td>
-                                            <td>3</td>
-                                            <td>$398</td>
-                                        </tr>
+                                        <asp:Repeater runat="server" ID="orderRepeater">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td class="text-left"><%# Eval("Name") %></td>
+                                                    <td>$<%# Eval("Price") %></td>
+                                                    <td><%# Eval("Quantity") %></td>
+                                                    <td>$<%# Convert.ToDecimal(Eval("Price").ToString()) * Convert.ToInt32(Eval("Quantity").ToString()) %></td>
+                                                </tr>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
                                     </tbody>
                                     <tfoot class="font-weight-600">
                                         <tr>
-                                            <td colspan="4" class="text-right">Shipping </td>
-                                            <td>$50.00</td>
+                                            <td colspan="3" class="text-right">Shipping</td>
+                                            <td>$0.00</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" class="text-right">Total</td>
-                                            <td>$845.00</td>
+                                            <td colspan="3" class="text-right">Total</td>
+                                            <td>$<asp:Label runat="server" ID="lblTotal" Text="0"></asp:Label></td>
                                         </tr>
                                     </tfoot>
                                 </table>
                             </div>
                         </div>
-
                         <hr />
-
                         <div class="your-payment">
                             <div class="order-button-payment">
-                                <asp:Button runat="server" cssClass="btn" text="Place order" style="float: left"/>
+                                <input type="button" onclick="onSubmit()" value="Place Order" class="btn-face"/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row" visible="false" id="AddCard" runat="server">
+            <div class="cardcontainer container">
+                <div class="col1">
+                    <div class="card">
+                        <div class="front">
+                            <div class="type">
+                                <img class="bankid" />
+                            </div>
+                            <span class="chip"></span>
+                            <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                            <div class="date"><span class="date_value">MM / YYYY</span></div>
+                            <span class="fullname">FULL NAME</span>
+                        </div>
+                        <div class="back">
+                            <div class="magnetic"></div>
+                            <div class="bar"></div>
+                            <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
+                            <span class="chip"></span><span class="disclaimer">This card is property of Random Bank of Random corporation.
+                                <br>
+                                If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col2">
+                    <label>Card Number</label>
+                    <asp:TextBox runat="server" class="number" type="text" ng-model="ncard" MaxLength="19"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' ID="txtCardNumber" />
+                    <label>Cardholder name</label>
+                    <asp:TextBox runat="server" class="inputname" type="text" placeholder="" ID="txtCardName" />
+                    <label>Expiry date</label>
+                    <asp:TextBox runat="server" class="expire" type="text" placeholder="MM / YY" ID="txtExpiryDate" />
+                    <label>Security Number</label>
+                    <asp:TextBox runat="server" class="ccv" type="text" placeholder="CVV" MaxLength="3"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' ID="txtCvv" />
+                    <asp:Button runat="server" class="buy" Text="      Add Card" OnClick="Add_New_Card" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </section>
+    <script src="Content/js/jquery-3.4.1.min.js"></script>
+    <script src="Content/js/AddCard.js"></script>
 </asp:Content>

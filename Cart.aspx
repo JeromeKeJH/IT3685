@@ -76,7 +76,7 @@
                     <div class="total-value final-value" id="basket-total"><asp:Label runat="server" ID="lblTotal" Text="0"></asp:Label></div>
                 </div>
                 <div class="summary-checkout">
-                    <button class="checkout-cta">Go to Secure Checkout</button>
+                    <a href="Checkout.aspx" class="checkout-cta btn"><strong>Go to Checkout</strong></a>
                 </div>
             </div>
         </aside>
