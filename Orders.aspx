@@ -30,7 +30,7 @@
                             <asp:Repeater runat="server" ID="orderRepeater">
                                 <ItemTemplate>
                                     <tr>
-                                        <th scope="row"><a href='<%# "OrderDetails?id= " + Eval("Id") %>'><b>#<%# Eval("Id") %></b></a></th>
+                                        <th scope="row"><a href='<%# "Order_Details?id=" + Eval("Id") %>'><b>#<%# Eval("Id") %></b></a></th>
                                         <td><%# Eval("OrderDate") %></td>
                                         <td col-span="2"><%# Eval("Address") + ", " + Eval("UnitNumber") + ", Singapore " + Eval("PostalCode") %></td>
                                         <td>$<%# Eval("Subtotal") %></td>

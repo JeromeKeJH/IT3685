@@ -265,6 +265,7 @@
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Orders.aspx" />
+    <Content Include="Order_Details.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -478,6 +479,13 @@
     </Compile>
     <Compile Include="Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Details.aspx.cs">
+      <DependentUpon>Order_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order_Details.aspx.designer.cs">
+      <DependentUpon>Order_Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
