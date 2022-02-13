@@ -26,7 +26,7 @@ namespace IT3685
             DataSet ds = new DataSet();
             adapter.Fill(ds);
 
-            int total = 0;
+            float total = 0;
             if (ds.Tables[0].Rows.Count == 0)
             {
                 Empty_Cart.Style.Add("Display", "Block");
@@ -34,10 +34,10 @@ namespace IT3685
             }
             foreach(DataRow row in ds.Tables[0].Rows)
             {
-                total += Convert.ToInt32(row.ItemArray[3]) * Convert.ToInt32(row.ItemArray[7]);
+                total += Convert.ToInt32(row.ItemArray[3]) * float.Parse(row.ItemArray[7].ToString());
             }
-            lblTotal.Text = total.ToString();
-            lblSubtotal.Text = total.ToString();
+            lblTotal.Text = total.ToString("n2");
+            lblSubtotal.Text = total.ToString("n2");
             itemRepeater.DataSource = ds;
             itemRepeater.DataBind();
         }

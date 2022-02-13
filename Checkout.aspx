@@ -16,6 +16,7 @@
             console.log(document.querySelector('input[name="cardRadio"]:checked').value);
         }
     </script>
+
     <section class="product_section layout_padding">
         <div class="container">
             <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsgDiv">
@@ -53,11 +54,13 @@
                     <br />
                     <div>
                         <h2 class="login-title mb-3">Payment Card</h2>
-
+                        <asp:RadioButtonList ID="RadioButtonList1"  runat="server"></asp:RadioButtonList>
                         <!-- Cards -->
-                        <asp:Repeater runat="server" ID="cardRepeater">
+                        
+                       <!-- <asp:Repeater runat="server" ID="cardRepeater">
                             <ItemTemplate>
-                                <input type="radio" name="cardRadio" id="Radio1" value='<%# Eval("CardNumber") %>' style="display: inline-block;">
+                                <asp:RadioButton id='Radio1' runat="server" GroupName="cards" onclick="fnCheckUnCheck(this.id);" />
+                              <!-- <input type="radio" name="cardRadio" id="Radio1" value='<%# Eval("CardNumber") %>' style="display: inline-block;">
                                 &nbsp &nbsp
                                     <div class='<%# "credit-card " + GetCardType(Eval("CardNumber").ToString()) %>' id="CardType" style="display: inline-block;">
                                         <div class="credit-card-last4">
@@ -69,7 +72,7 @@
                                     </div>
                                     <br />
                             </ItemTemplate>
-                        </asp:Repeater>
+                        </asp:Repeater>-->
 
                         <div style="padding-left: 33px;">
                             <asp:LinkButton runat="server" ID="OpenAddCard" OnClick="OpenAddCard_Click">
