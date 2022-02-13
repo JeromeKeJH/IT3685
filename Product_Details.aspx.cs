@@ -1,27 +1,34 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MySql.Data.MySqlClient;
 using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace IT3685
 {
-    public partial class Contact : Page
+    public partial class Product_Details : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+            string id = HttpUtility.ParseQueryString(myUri.Query).Get("id");
+
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["IT3685"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM product", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM product WHERE Id=@id", con);
+            cmd.Parameters.AddWithValue("@id", id);
+
             con.Open();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            adapter.SelectCommand = cmd;
-
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            productsRepeater.DataSource = dataSet;
-            productsRepeater.DataBind();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            prodImg.ImageUrl = reader["Img"].ToString();
+            prodName.Text = reader["Name"].ToString();
+            prodPrice.Text = reader["Price"].ToString();
+            prodDesc.Text = reader["Description"].ToString();
+            reader.Close();
+            con.Close();
         }
 
         protected void Add_To_Cart(object sender, EventArgs e)
@@ -32,7 +39,8 @@ namespace IT3685
                 Response.Redirect("Login?msg=AddToCart");
             }
 
-            string productId = ((LinkButton)sender).CommandArgument;
+            Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+            string productId = HttpUtility.ParseQueryString(myUri.Query).Get("id");
             customerId = customerId.ToString();
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["IT3685"].ConnectionString);
             MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM cart WHERE CustomerId=@customerId AND ProductId=@productId", con);
@@ -46,9 +54,10 @@ namespace IT3685
             if (count == 0)
             {
                 cmd = new MySqlCommand("INSERT INTO cart(`CustomerId`, `ProductId`, `Quantity`) " +
-                    "VALUES(@customerId, @productId, 1)", con);
+                    "VALUES(@customerId, @productId, @quantity)", con);
                 cmd.Parameters.AddWithValue("@customerId", customerId);
                 cmd.Parameters.AddWithValue("@productId", productId);
+                cmd.Parameters.AddWithValue("@quantity", TxtQuantity.Text);
                 cmd.ExecuteNonQuery();
             }
             else
@@ -72,7 +81,7 @@ namespace IT3685
             string name = cmd.ExecuteScalar().ToString();
             con.Close();
             ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "none",
-                $"alert('{name} has been added to your cart');", true);
+                $"alert('{TxtQuantity.Text} {name} has been added to your cart');", true);
         }
 
         protected void Add_To_Wishlist(object sender, EventArgs e)
@@ -83,7 +92,8 @@ namespace IT3685
                 Response.Redirect("Login?msg=AddToWishlist");
             }
 
-            string productId = ((LinkButton)sender).CommandArgument;
+            Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+            string productId = HttpUtility.ParseQueryString(myUri.Query).Get("id");
             customerId = customerId.ToString();
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["IT3685"].ConnectionString);
 
@@ -119,5 +129,6 @@ namespace IT3685
             ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "none",
                 $"alert('{name} has been added to your wishlist');", true);
         }
+
     }
 }

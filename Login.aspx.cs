@@ -19,17 +19,22 @@ namespace IT3685
                 lblErrorMsg.Style.Add("color", "green");
                 lblErrorMsg.Text = "Registration was successful, please proceed to log in";
             }
-            if (msg == "ResetSuccess")
+            else if (msg == "ResetSuccess")
             {
                 lblErrorMsg.Style.Add("color", "green");
                 lblErrorMsg.Text = "Password reset was successful, please proceed to log in";
             }
-            if (msg == "AddToCart")
+            else if(msg == "AddToCart")
             {
                 lblErrorMsg.Style.Add("color", "red");
                 lblErrorMsg.Text = "Please log in to Add to Cart";
             }
-            if (msg == "Login")
+            else if(msg == "AddToWishlist")
+            {
+                lblErrorMsg.Style.Add("color", "red");
+                lblErrorMsg.Text = "Please log in to Add to Wishlist";
+            }
+            else if(msg == "Login")
             {
                 lblErrorMsg.Style.Add("color", "red");
                 lblErrorMsg.Text = "Please log in to proceed";
