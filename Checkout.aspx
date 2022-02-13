@@ -57,7 +57,7 @@
                         <!-- Cards -->
                         <asp:Repeater runat="server" ID="cardRepeater">
                             <ItemTemplate>
-                                <input type="radio" name="cardRadio" id='<%# Eval("CardNumber") %>' value='<%# Eval("CardNumber") %>' style="display: inline-block;">
+                                <input type="radio" name="cardRadio" id="Radio1" value='<%# Eval("CardNumber") %>' style="display: inline-block;">
                                 &nbsp &nbsp
                                     <div class='<%# "credit-card " + GetCardType(Eval("CardNumber").ToString()) %>' id="CardType" style="display: inline-block;">
                                         <div class="credit-card-last4">
@@ -78,32 +78,6 @@
                                 </div>
                             </asp:LinkButton>
                         </div>
-
-
-                        <!--
-                        <!- JCB - selectable ->
-                        <div class="credit-card jcb selectable">
-                            <div class="credit-card-last4">
-                                1060
-                            </div>
-                            <div class="credit-card-expiry">
-                                02/21
-                            </div>
-                        </div>
-
-
-                        <!- Unionpay - selectable ->
-                        <div class="credit-card unionpay selectable">
-                            <div class="credit-card-last4">
-                                0005
-                            </div>
-                            <div class="credit-card-expiry">
-                                03/25
-                            </div>
-                        </div>
-                        -->
-
-
                     </div>
                 </div>
 
@@ -151,7 +125,7 @@
                         <hr />
                         <div class="your-payment">
                             <div class="order-button-payment">
-                                <input type="button" onclick="onSubmit()" value="Place Order" class="btn-face"/>
+                                <asp:Button runat="server" Text="Place Order" class="btn-face" OnClick="Place_Order"/>
                             </div>
                         </div>
                     </div>

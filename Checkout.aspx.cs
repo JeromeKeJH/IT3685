@@ -5,6 +5,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
+using System.Web.UI.HtmlControls;
+
 namespace IT3685
 {
     public partial class Add_Card : Page
@@ -144,7 +146,11 @@ namespace IT3685
 
         protected void Place_Order(object sender, EventArgs e)
         {
-
+            
+            foreach (RepeaterItem row in cardRepeater.Items)
+            {
+                var test = (HtmlInputRadioButton)row.FindControl("Radio1");
+            }
         }
 
         protected string GetCardType(string number)

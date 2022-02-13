@@ -1,4 +1,4 @@
-﻿// 4: VISA, 51 -> 55: MasterCard, 36-38-39: DinersClub, 34-37: American Express, 65: Discover, 5019: dankort
+﻿// 4: VISA, 51 -> 55: MasterCard, 36-38-39: DinersClub, 34-37: American Express, 65: Discover
 
 $(document).ready($(function () {
     var cards = [
