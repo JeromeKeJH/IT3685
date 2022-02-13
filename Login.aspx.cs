@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
-
 using MySql.Data.MySqlClient;
-
 using System.Configuration;
 
 namespace IT3685
