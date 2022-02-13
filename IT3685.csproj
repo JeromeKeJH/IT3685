@@ -230,6 +230,7 @@
     <Content Include="Content\images\Products\3.jpg" />
     <Content Include="Content\images\Products\4.png" />
     <Content Include="Content\images\Products\5.png" />
+    <Content Include="Content\js\AddCard.js" />
     <Content Include="Content\js\login.js" />
     <Content Include="Content\vendor\animate\animate.css" />
     <Content Include="Content\vendor\animsition\css\animsition.css" />
