@@ -37,7 +37,7 @@ namespace IT3685
                 lblName.Text = $"{reader["FirstName"]} {reader["LastName"]}";
                 lblEmail.Text = reader["EmailAddress"].ToString();
                 lblGender.Text = reader["Gender"].ToString() == "M" ? "Male" : "Female";
-                lblDOB.Text = reader["DateOfBirth"].ToString();
+                lblDOB.Text = reader["DateOfBirth"].ToString().Split(' ')[0];
                 txtFirstName.Text = reader["FirstName"].ToString();
                 txtLastName.Text = reader["LastName"].ToString();
                 txtPhone.Text = reader["ContactNumber"].ToString();

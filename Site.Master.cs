@@ -34,10 +34,6 @@ namespace IT3685
             {
                 Cart.Attributes.Add("Class", "nav-item active");
             }
-            else if (urlList.Last() == "Wishlist" || urlList.Last() == "Account")
-            {
-                User.Attributes.Add("Class", "nav-item active");
-            }
             else
             {
                 Home.Attributes.Add("Class", "nav-item active");

@@ -38,7 +38,7 @@
                             <span class="item-quantity"><%# Eval("Quantity") %></span>
                         </div>
                         <div class="subtotal">
-                            <%# Convert.ToInt32(Eval("Quantity")) * Convert.ToInt32(Eval("Price")) %>
+                            <%# (Convert.ToInt32(Eval("Quantity")) * float.Parse(Eval("Price").ToString())).ToString("n2") %>
                         </div>
                         <div class="remove">
                             <button>
